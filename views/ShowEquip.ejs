@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=), initial-scale=1.0">
+    <title>Store</title>
+    <link rel="icon" type="image/x-icon" href="gymos.ico">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Alumni+Sans+Collegiate+One&family=Bonheur+Royale&family=Fredoka+One&family=Gideon+Roman&family=Roboto&family=Silkscreen&family=Special+Elite&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1 class="headeng"><%= title%></h1>
+    </header>
+ <div class="main">
+    <div class="nav">
+
+<div>
+<a href="/">Home</a>
+<a href="/showEquip">All Equipment</a>
+<a href="/showSupl">All Suplements</a>
+<a href="/showExer">All Exersizes</a>
+<a href="/showBro">All BodyBuilder</a>
+</div>
+<div>
+    <a href="/BodyBuilderForm">Create new BodyBuilder</a>
+    <a href="/Equipment">Create new Equipment</a>
+    <a href="/Suplements">Create new Suplements</a>
+    <a href="/Exersize">Create new Exersizes</a>
+</div>
+
+    </div>
+
+
+
+
+<div class="show">
+<% arr.forEach(function(item){%>
+    <a href="/Details/<%=item._id%>/<%=item.category%>"> 
+         <div class="item">
+
+        <h1>Name: <%= item.name%></h1>   
+           <h1>Invented in: <%= item.invented%></h1>
+       <h1>Recomended sets: <%= item.recomended%></h1>
+          
+       </div>
+    </a>
+
+   <%})%>
+</div>
+</div>
+
+
+
+    
+
+
+
+ </div>
+
+</body>
+
+</script>
+</html>
