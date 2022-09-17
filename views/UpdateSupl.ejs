@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=), initial-scale=1.0">
+    <title>Store</title>
+    <link rel="icon" type="image/x-icon" href="gymos.ico">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Alumni+Sans+Collegiate+One&family=Bonheur+Royale&family=Fredoka+One&family=Gideon+Roman&family=Roboto&family=Silkscreen&family=Special+Elite&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1 class="headeng"><%= title%></h1>
+    </header>
+ <div class="main">
+    <div class="nav">
+
+        <div>
+            <a href="/">Home</a>
+            <a href="">All Equipment</a>
+            <a href="">All Suplements</a>
+            <a href="">All Exersizes</a>
+            <a href="">All BodyBuilder</a>
+            </div>
+            <div>
+                <a href="/BodyBuilderForm">Create new BodyBuilder</a>
+                <a href="/Equipment">Create new Equipment</a>
+                <a href="/Suplements">Create new Suplements</a>
+                <a href="/Exersize">Create new Exersizes</a>
+            </div>
+
+    </div>
+
+
+
+
+<div class="show">
+
+<form class="addForm" action="" method="post">
+
+    <div >
+        <label for="suplementName">GYM SUPLEMENT NAME</label>
+        <input placeholder="<%=item.name %>" type="text" name="suplementName" id="suplementName">
+    </div>
+    <div >
+        <label for="suplementInvented">GYM SUPLEMENT INVENTED IN</label>
+        <input  placeholder="<%=item.invented %>"type="number" name="suplementInvented" id="suplementInvented">
+    </div>
+    
+
+    <div >
+        <label for="suplementDose">GYM SUPLEMENT REMCOMENDED DOSE IN G</label>
+        <input placeholder="<%=item.dose %>" type="number" name="suplementDose" id="suplementDose">
+    </div>
+    <div >
+        <label for="suplementPrice">GYM SUPLEMENT PRICE IN $$</label>
+        <input placeholder="<%=item.price %>" type="number" name="suplementPrice" id="suplementPrice">
+    </div>
+    <button>Send</button>
+</form>
+
+
+</div>
+
+
+
+ </div>
+
+</body>
+</html>

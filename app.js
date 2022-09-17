@@ -326,6 +326,40 @@ app.get('/Edit/:id/:category',function(req,res){
          
          
         }
+        if(req.params.category === "Equipment"){
+ 
+
+            EQUIP.forEach((item)=>{
+               
+                id = item._id.toString().slice(0,24)
+        
+                if( id ===req.params.id ){
+                    ITEM= item
+                }
+            
+            })
+        
+            res.render('UpdateEquip',{title:"UPDATE Equipment",item:ITEM})
+             
+             
+            }
+            if(req.params.category === "Suplement"){
+ 
+
+                SUPL.forEach((item)=>{
+                   
+                    id = item._id.toString().slice(0,24)
+            
+                    if( id ===req.params.id ){
+                        ITEM= item
+                    }
+                
+                })
+            
+                res.render('UpdateSupl',{title:"UPDATE Equipment",item:ITEM})
+                 
+                 
+                }
 })
 
 
@@ -457,7 +491,115 @@ BROS = arr
              
              
             }
+            if(req.params.category === "Equipment"){
+ 
 
+                EQUIP.forEach((item)=>{
+                   
+                    id = item._id.toString().slice(0,24)
+            
+                    if( id !==req.params.id ){
+                        arr.push(item)
+                    }else{
+                        oldItem = item
+                        console.log(oldItem)
+                    }
+                
+                })
+                if(req.body.equipmentName === undefined || req.body.equipmentName === null){
+        newItem = {...newItem,name:oldItem.name}
+                }else{
+                    newItem = {...newItem,name:req.body.equipmentName}
+                }
+            
+        
+        
+        if(req.body.equipmentInvented === undefined || req.body.equipmentInvented === null){
+        newItem = {...newItem,invented:oldItem.invented}
+        }else{
+        newItem = {...newItem,invented:req.body.equipmentInvented}
+        }
+                        
+        if(req.body.equipmentSets === undefined || req.body.equipmentSets === null){
+        newItem = {...newItem,recomended:oldItem.recomended}
+        }else{
+        newItem = {...newItem,recomended:req.body.equipmentSets}
+        }
+                            
+        
+      
+    
+        newItem =  {...newItem,category:"Equipment",_id:oldItem._id}      
+        
+        
+        console.log(req.params)
+        await  Equipment.findOneAndUpdate({_id:newItem._id},
+         {  name:newItem.name,
+             invented:newItem.invented ,
+            recomended:newItem.recomended,
+            },
+          ).exec()
+        arr.push(newItem)
+        EQUIP = arr
+                res.render('ShowEquip',{title:"ALL EQUPMENT",arr:arr})
+                 
+                 
+                }
+                if(req.params.category === "Suplement"){
+ 
+
+                    SUPL.forEach((item)=>{
+                       
+                        id = item._id.toString().slice(0,24)
+                
+                        if( id !==req.params.id ){
+                            arr.push(item)
+                        }else{
+                            oldItem = item
+                            console.log(oldItem)
+                        }
+                    
+                    })
+                    if(req.body.suplementName === undefined || req.body.suplementName === null){
+            newItem = {...newItem,name:oldItem.name}
+                    }else{
+                        newItem = {...newItem,name:req.body.suplementName}
+                    }
+                
+            
+            
+            if(req.body.suplementDose === undefined || req.body.suplementDose === null){
+            newItem = {...newItem,dose:oldItem.dose}
+            }else{
+            newItem = {...newItem,dose:req.body.suplementDose}
+            }
+                            
+            if(req.body.suplementPrice === undefined || req.body.suplementPrice === null){
+            newItem = {...newItem,price:oldItem.price}
+            }else{
+            newItem = {...newItem,price:req.body.suplementPrice}
+            }
+                                
+            
+          
+        
+            newItem =  {...newItem,category:"Suplement",_id:oldItem._id}      
+            
+            
+            console.log(req.params)
+            await  Equipment.findOneAndUpdate({_id:newItem._id},
+             {  name:newItem.name,
+                 invented:newItem.invented ,
+                dose:newItem.dose,
+                price:newItem.price
+                },
+              ).exec()
+            arr.push(newItem)
+            EQUIP = arr
+                    res.render('ShowSupl',{title:"ALL SUPLEMENTS",arr:arr})
+                     
+                     
+                    }
 })
 
 app.listen(3000)

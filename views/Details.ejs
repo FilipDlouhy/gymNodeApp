@@ -47,8 +47,8 @@
 <h1>Invented in: <%= item.invented%></h1>
 <h1>Recomended Dose: <%= item.dose%></h1>
 <h1>Price $$: <%= item.price%></h1>
-<button>EDIT</button>
-<a href="/Delete/<%=item._id%>/<%=item.category%>"><button>DELETE</button>s</a>
+<a href="/Edit/<%=item._id%>/<%=item.category%>">   <button>EDIT</button> </a>
+<a href="/Delete/<%=item._id%>/<%=item.category%>"><button>DELETE</button></a>
        </div>
        <%}%>
 
@@ -71,7 +71,7 @@
                 <h1>Name: <%= item.name%></h1>   
                 <h1>Invented in: <%= item.invented%></h1>
             <h1>Recomended sets: <%= item.recomended%></h1>
-            <button>EDIT</button>
+            <a href="/Edit/<%=item._id%>/<%=item.category%>">       <button>EDIT</button> </a>
             <a href="/Delete/<%=item._id%>/<%=item.category%>"><button>DELETE</button></a>
                </div>
                <%}%>
